@@ -22,6 +22,8 @@ public:
 			const std::vector<Eigen::VectorXd> &estimations,
 			const std::vector<Eigen::VectorXd> &ground_truth);
 
+	double normalizePIValue(double x);
+
 };
 
 #endif /* TOOLS_H_ */

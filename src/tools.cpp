@@ -36,3 +36,13 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 	return rmse;
 }
+
+double Tools::normalizePIValue(double x) {
+	while (x > M_PI) {
+		x -= 2. * M_PI;
+	}
+	while (x < -M_PI) {
+		x += 2. * M_PI;
+	}
+	return x;
+}
