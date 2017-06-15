@@ -331,10 +331,7 @@ void UKF::predictMeanAndCovariance() {
 		// state difference
 		VectorXd x_diff = Xsig_pred_.col(i) - x_;
 		//angle normalization
-		while (x_diff(3) > M_PI)
-			x_diff(3) -= 2. * M_PI;
-		while (x_diff(3) < -M_PI)
-			x_diff(3) += 2. * M_PI;
+		x_diff(3) = tools.normalizePIValue(x_diff(3));
 
 		P_ = P_ + weights_(i) * x_diff * x_diff.transpose();
 	}
